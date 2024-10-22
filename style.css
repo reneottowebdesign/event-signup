@@ -1,0 +1,17 @@
+/* Your custom styles go here */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+}
+
+
+.form-group{
+    margin-bottom: 30px;
+}

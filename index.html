@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event - Anmeldung</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Event - Anmeldung</h1>
+        <h2 class="text-center mb-5">Datum: 23.10 / Ort: "Ort"</h2>
+        <div id="success-message" class="alert alert-success mt-3 d-none">
+            Erfolgreich eingetragen!
+        </div>
+        <div id="duplicate-message" class="alert alert-warning mt-3 d-none">
+            Du bist schon eingetragen.
+        </div>
+        <form action="/submitOrUpdate" method="post" class="mt-4">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
+            </div>
+            <input type="hidden" id="choice" name="choice" value="">
+            <button type="submit" class="btn btn-success" onclick="document.getElementById('choice').value='zusagen'">Zusagen</button>
+            <button type="submit" class="btn btn-danger" onclick="document.getElementById('choice').value='absagen'">Absagen</button>
+        </form>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('success-message').classList.remove('d-none');
+        }
+        if (window.location.search.includes('duplicate=true')) {
+            document.getElementById('duplicate-message').classList.remove('d-none');
+        }
+    </script>
+</body>
+
+</html>
